@@ -1,0 +1,43 @@
+/* Variables */
+
+$background-color: #191b2d;
+$text-color: #a2a2a2;
+$fonts-regular: 'Space Mono', 'Ubuntu Mono';
+$fonts-bold: 'Space Mono Bold', 'Ubuntu Mono Bold';
+
+/* Font Family Imports */
+
+@font-face {
+    font-family: 'Space Mono';
+    src: url('fonts/SpaceMono-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Space Mono Bold';
+    src: url('fonts/SpaceMono-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'Ubuntu Mono';
+    src: url('fonts/UbuntuMono-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Ubuntu Mono Bold';
+    src: url('fonts/UbuntuMono-Bold.ttf');
+}
+
+/* Root Vars & Global Styling */
+
+* {
+    background-color: $background-color;
+    font-family: $fonts-regular;
+    color: $text-color;
+    text-align: center;
+}
+
+/* Class Specific Styling */
+
+
+
+/* ID Specific Styling */

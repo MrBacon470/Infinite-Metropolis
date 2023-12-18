@@ -1,0 +1,21 @@
+---
+	import '../styling/styles.scss'
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/png" href="images/house.png" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Infinite Metropolis</title>
+	</head>
+	<body>
+		<h1 id="testHeaderForCode">Infinite Metropolis</h1>
+	</body>
+	<!-- Internals -->
+	<script is:inline src="scripts/internal/BreakEternity.js"></script>
+	<!-- Game Scripts -->
+	<script is:inline src="scripts/main.js"></script>
+	<script is:inline src="scripts/data.js"></script>
+</html>
