@@ -1,7 +1,19 @@
 
 function getDefaultData() {
     return {
+        money: Decimal.dZero,
+        population: Decimal.dZero,
+        residential: {
 
+        },
+        commercial: {
+
+        },
+        industrial: {
+
+        },
+        currentTab: 0,
+        currentVersion: 'v0.0.0'
     }
 }
 
@@ -19,7 +31,10 @@ function load() {
     if(save === null || save === undefined) save = getDefaultData()
     else if(save !== undefined) fixSave(data,save)
 
-    //Update Save File Version when applicable
+    if(data.currentVersion !== getDefaultData().currentVersion) {
+        data.currentVersion = getDefaultData().currentVersion
+        //Notify User, Fix anything necessary
+    }
 }
 
 function fixSave(defaultData=getDefaultObject(), importedData) {

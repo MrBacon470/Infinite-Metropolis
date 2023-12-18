@@ -1,7 +1,13 @@
 ---
 	import '../styling/styles.scss'
-	import NavBar from '../components/NavBar.astro';
 	import Header from '../components/Header.astro'
+	import Zoning from '../components/Zoning.astro'
+	import Utilities from '../components/Utilities.astro'
+	import Services from '../components/Services.astro'
+	import TownHall from '../components/TownHall.astro'
+	import Finances from '../components/Finances.astro'
+	import Specialization from '../components/Specialization.astro'
+	import Settings from '../components/Settings.astro'
 ---
 
 <html lang="en">
@@ -14,16 +20,25 @@
 	</head>
 	<body>
 		<div id="gameHolder" class="flexRow">
-			<NavBar />
+			<div id="navBar" class="flexCol"></div>
 			<div id="mainContentHolder" class="flexCol">
 				<Header />
-				<div id="testContainer" class="tabContent">Test Content</div>
+				<Zoning />
+				<Utilities />
+				<Services />
+				<TownHall />
+				<Finances />
+				<Specialization />
+				<Settings />
 			</div>
 		</div>
 	</body>
 	<!-- Internals -->
 	<script is:inline src="scripts/internal/BreakEternity.js"></script>
+	<script is:inline src="scripts/internal/cache.js"></script>
+	<script is:inline src="scripts/internal/formatting.js"></script>
+	<script is:inline src="scripts/internal/utilities.js"></script>
 	<!-- Game Scripts -->
-	<script is:inline src="scripts/main.js"></script>
 	<script is:inline src="scripts/data.js"></script>
+	<script is:inline src="scripts/main.js"></script>
 </html>
