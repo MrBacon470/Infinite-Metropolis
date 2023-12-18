@@ -1,3 +1,4 @@
+@use 'sass:math';
 /* Variables */
 /* Color Vars */
 $background-color: #191b2d;
@@ -7,10 +8,11 @@ $red: #a00000;
 $yellow: #b4d403;
 $blue: #0043a0;
 $purple: #7300a0;
+$navBar-Width: 200px;
 /* Font Variables */
-$fonts-regular: 'Space Mono', 'Ubuntu Mono';
-$fonts-bold: 'Space Mono Bold', 'Ubuntu Mono Bold';
-
+$fonts-regular: 'Ubuntu Mono';
+$fonts-bold: 'Ubuntu Mono Bold';
+//'Space Mono', 'Space Mono Bold', 
 /* Font Family Imports */
 
 @font-face {
@@ -62,14 +64,12 @@ $fonts-bold: 'Space Mono Bold', 'Ubuntu Mono Bold';
     font-family: $fonts-regular;
     color: $text-color;
     text-align: center;
-    justify-content: center;
 }
 
 body {
-    padding: 0px;
-    margin: 0px;
-    height: 100%;
-    width: 100%;
+    margin: 0;
+    overflow: hidden;
+    user-select: none;
 }
 
 h1, h2, h3, h4 {
@@ -87,6 +87,10 @@ button:hover {@include standardButtonHover()}
 .blueText {@include coloredFont($blue)}
 .purpleText {@include coloredFont($purple)}
 
+.boldText {
+    font-family:$fonts-bold;
+}
+
 .flexRow {
     display: flex;
     flex-direction: row;
@@ -101,35 +105,41 @@ button:hover {@include standardButtonHover()}
     align-items: center;
 }
 
-.boldText {
-    font-family:$fonts-bold;
+.tabContent {
+    border-right: 4px solid $text-color;
+    height: 75vh;
+    width: calc(100vw - $navBar-Width);
 }
 
 /* ID Specific Styling */
 
-#mainContentHolder {
-    height: 100%;
-    min-height: 100%;
-    width: 100%;
+#gameHolder {
+    height: 100vh;
+    width: 100vw;
 }
 
 #navBar {
-    height: 100%;
-    min-height: 100%;
-    width: 200px;
+    height: 100vh;
+    width: $navBar-Width;
     border-right: 4px solid $text-color;
-
+    overflow-x: hidden;
+    overflow-y: auto;
+    align-items: flex-start;
+    align-content: flex-start;
+    
     button {
+        position: relative;
         height: 50px;
         width: 100%;
     }
 }
 
 #resourceHeader {
-    width: 100%;
-    border-bottom: 2px solid $text-color;
+    height: 25vh;
+    width: calc(100vw - $navBar-Width);
+    border-bottom: 4px solid $text-color;
     border-right: 4px solid $text-color;
-
+    overflow: hidden;
     h1, h2, h3, h4, p, div {
         margin-left: 1vw;
         margin-right: 1vw;

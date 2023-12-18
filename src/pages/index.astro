@@ -1,6 +1,6 @@
 ---
 	import '../styling/styles.scss'
-	import Navbar from '../components/NavBar.astro';
+	import NavBar from '../components/NavBar.astro';
 	import Header from '../components/Header.astro'
 ---
 
@@ -12,10 +12,13 @@
 		<meta name="generator" content={Astro.generator} />
 		<title>Infinite Metropolis</title>
 	</head>
-	<body class="flexRow">
-		<Navbar />
-		<div id="mainContentHolder" class="flexCol">
-			<Header />
+	<body>
+		<div id="gameHolder" class="flexRow">
+			<NavBar />
+			<div id="mainContentHolder" class="flexCol">
+				<Header />
+				<div id="testContainer" class="tabContent">Test Content</div>
+			</div>
 		</div>
 	</body>
 	<!-- Internals -->
