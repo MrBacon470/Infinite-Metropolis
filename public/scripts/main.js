@@ -2,10 +2,24 @@ const tabNames = ['Zoning','Utilities','Services','Town Hall','Finances','Specia
 
 function initGame() {
     //HTML Generation
+    //Zoning Tab
     for(let i = 0; i < tabNames.length; i++) {
         addHTML('navBar',`<button id="navButton${i}">${tabNames[i]}</button>`)
         DOMCacheGetOrSet(`navButton${i}`).addEventListener('click',() => switchTab(i))
     }
+    DOMCacheGetOrSet(`residentialZoneInfoText`).innerText = `\t($)($$)($$$)\n`+`(LD)\t0\t0\t0\n`+`(MD)\t0\t0\t0\n`+`(HD)\t0\t0\t0`
+    DOMCacheGetOrSet(`commercialZoneInfoText`).innerText = `\t($)($$)($$$)\n`+`(LD)\t0\t0\t0\n`+`(MD)\t0\t0\t0\n`+`(HD)\t0\t0\t0`
+    DOMCacheGetOrSet(`industrialZoneInfoText`).innerText = `\t(LT)(MT)(HT)\n`+`(LD)\t0\t0\t0\n`+`(MD)\t0\t0\t0\n`+`(HD)\t0\t0\t0`
+    //Utilities Tab
+    //Services Tab
+    //Town Hall Tab
+    //Finances Tab
+    //Specialization Tab
+    //Settings Tab
+    DOMCacheGetOrSet('saveButton').addEventListener('click', () => save())
+    DOMCacheGetOrSet('exportButton').addEventListener('click',() => exportSave())
+    DOMCacheGetOrSet('importButton').addEventListener('click', () => importSave())
+    DOMCacheGetOrSet('deleteButton').addEventListener('click', () => deleteSave())
 }
 
 function updateGame() {
@@ -30,6 +44,8 @@ window.onload = function() {
     initGame()
     calculateOfflineProgress()
     switchTab(data.currentTab)
+
+    DOMCacheGetOrSet('currentVersionText').innerText = `Current Version: ${getDefaultData().currentVersion}`
 }
 //50ms Updates
 window.setInterval(() => updateGame(), 50);

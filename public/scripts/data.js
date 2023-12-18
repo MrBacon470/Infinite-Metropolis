@@ -33,7 +33,7 @@ function load() {
 
     if(data.currentVersion !== getDefaultData().currentVersion) {
         data.currentVersion = getDefaultData().currentVersion
-        //Notify User, Fix anything necessary
+        createAlert('Welcome Back!',`The game's current version is ${getDefaultData().currentVersion}`)
     }
 }
 
@@ -62,10 +62,16 @@ function exportSave() {
     linkObj.id = 'fileExportObject'
     
     save()
-    const saveFile = new Blob([atob(JSON.stringify(data))], {type:'text/plain'})
+    const saveFile = new Blob([btoa(JSON.stringify(data))], {type:'text/plain'})
     linkObj.setAttribute('href', URL.createObjectURL(saveFile))
     linkObj.download = `${saveName}-${new Date()}.txt`
     linkObj.click()
     URL.revokeObjectURL(linkObj)
-    linkObj.parentNode.removeChild(linkObj)
+}
+
+function deleteSave() {
+    save()
+    exportSave()
+    window.localStorage.removeItem(saveName)
+    location.reload()
 }
