@@ -18,7 +18,7 @@ function initGame() {
     //Settings Tab
     DOMCacheGetOrSet('saveButton').addEventListener('click', () => save())
     DOMCacheGetOrSet('exportButton').addEventListener('click',() => exportSave())
-    DOMCacheGetOrSet('importButton').addEventListener('click', () => importSave())
+    DOMCacheGetOrSet('importButton').addEventListener('click', () => createInput('Import Save Data',"",importSave))
     DOMCacheGetOrSet('deleteButton').addEventListener('click', () => deleteSave())
 }
 

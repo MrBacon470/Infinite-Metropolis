@@ -53,8 +53,14 @@ function fixSave(defaultData=getDefaultObject(), importedData) {
     else return getDefaultObject()
 }
 
-function importSave() {
-    //Write once I have UI lol
+function importSave(importedData) {
+    if(importedData === undefined || importedData.length === 0) {
+        createAlert('No Data Imported','','red')
+        return
+    }
+    data = Object.assign(getDefaultData(),JSON.parse(atob(importedData)))
+    save()
+    location.reload()
 }
 
 function exportSave() {
