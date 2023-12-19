@@ -5,12 +5,12 @@
 $background-color: #191b2d;
 $text-color: #b9b9b9;
 $colors: (
-    green: #00a033,
-    red: #a00000,
-    yellow: #b4d403,
-    blue: #0043a0,
-    purple: #7300a0,
-    brown: #4b3516,
+    "green": #00a033,
+    "red": #a00000,
+    "yellow": #b4d403,
+    "blue": #0043a0,
+    "purple": #7300a0,
+    "brown": #4b3516,
 );
 
 
@@ -112,6 +112,10 @@ h1, h2, h3, h4 {
     font-family: $fonts-bold;
 }
 
+input {
+    border: 2px solid $text-color;
+}
+
 button {@include standardButton()}
 button:hover {@include standardButtonHover()}
 button.selected {@include standardButtonHover()}
@@ -175,7 +179,7 @@ button.selected {@include standardButtonHover()}
 .modalContainer {@include modalContainer()}
 
 @each $color, $value in $colors {
-    .modalContainer#{$color} {@include modalContainer($color)}
+    .modalContainer#{$color} {@include modalContainer($value)}
 }
 
 /* ID Specific Styling */
@@ -231,6 +235,6 @@ button.selected {@include standardButtonHover()}
     }
 }
 
-#residentialHolder {@include zoneHolder(map-get($colors,green))}
-#commercialHolder {@include zoneHolder(map-get($colors,blue))}
-#industrialHolder {@include zoneHolder(map-get($colors,yellow))}
+#residentialHolder {@include zoneHolder(map-get($colors,'green'))}
+#commercialHolder {@include zoneHolder(map-get($colors,'blue'))}
+#industrialHolder {@include zoneHolder(map-get($colors,'yellow'))}
